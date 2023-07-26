@@ -2,7 +2,9 @@
 
 import { SessionInterface } from "@/common.types";
 import { categoryFilters } from "@/constans";
+import { createNewProject, fetchToken } from "@/lib/actions";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { ChangeEvent, useState } from "react";
 import Button from "./Button";
 import CustomMenu from "./CustomMenu";
@@ -14,17 +16,24 @@ type Props = {
 };
 
 const ProjectFrom = ({ type, session }: Props) => {
-  const handleFromSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true)
+  const router = useRouter();
+
+  const handleFromSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const { token } = await fetchToken();
+
     try {
-      if(type === 'create') {
-      
+      if (type === "create") {
+        await createNewProject(form, session?.user?.id, token);
+        router.push("/");
       }
     } catch (error) {
-      
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
     }
-
   };
   const handleChangeImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
