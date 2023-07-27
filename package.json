@@ -18,7 +18,7 @@
     "cloudinary": "^1.37.3",
     "graphql-request": "^6.1.0",
     "jsonwebtoken": "^9.0.1",
-    "next": "13.4.10",
+    "next": "^13.4.12",
     "next-auth": "^4.22.1",
     "postcss": "8.4.26",
     "react": "18.2.0",
@@ -27,6 +27,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@grafbase/sdk": "^0.2.1"
+    "@grafbase/sdk": "^0.24.1"
   }
 }
