@@ -14,7 +14,7 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
     return (
         <div className="flexCenter z-10 flex-col relative">
             <Menu as="div">
-                <Menu.Button className="flexCenter" onMouseEnter={() => setOpenModal(true)} >
+                <Menu.Button id='user-profile' className="flexCenter" onMouseEnter={() => setOpenModal(true)} >
                     {session?.user?.image && (
                         <Image
                             src={session.user.image}
