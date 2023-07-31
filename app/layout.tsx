@@ -16,7 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* @ts-expect-error Server Component */}
         <Navigationbar />
         <main>{children}</main>
         <Footer />
