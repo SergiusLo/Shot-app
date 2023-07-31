@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
+import Navigationbar from "@/components/Navigationbar";
 
 export const metadata = {
   title: "Shot-app",
@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* @ts-expect-error Async Server Component */}
-        <NavBar />
+        <Navigationbar />
         <main>{children}</main>
         <Footer />
       </body>

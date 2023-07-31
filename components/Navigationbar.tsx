@@ -8,7 +8,7 @@ import AuthProviders from "./AuthProviders";
 import Button from "./Button";
 import ProfileMenu from "./ProfileMenu";
 
-const NavBar = async () => {
+const Navigationbar = async () => {
   const session = await getCurrentUser();
 
   return (
@@ -42,4 +42,4 @@ const NavBar = async () => {
   );
 };
 
-export default NavBar;
+export default Navigationbar;
