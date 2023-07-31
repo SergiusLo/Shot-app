@@ -5,10 +5,24 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ["cloudinary", "graphql-request"],
+    components: {
+      NavBar,
+    },
   },
-  components: {
-    NavBar,
-  },
+ 
 };
+
+const withNavBar = () => {
+  return (
+    next({
+      // other config options
+      components: {
+        NavBar,
+      },
+    })
+  );
+};
+
+module.exports = withNavBar;
 
 module.exports = nextConfig;
