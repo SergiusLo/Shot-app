@@ -29,11 +29,13 @@ const ProjectFrom = ({ type, session, project }: Props) => {
       if (type === "create") {
         await createNewProject(form, session?.user?.id, token);
         router.push("/");
+        router.refresh();
       }
 
       if (type === "edit") {
         await updateProject(form, project?.id as string, token);
         router.push("/");
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
