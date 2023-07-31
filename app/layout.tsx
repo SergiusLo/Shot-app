@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import Footer from "@/components/Footer";
-import NavBar from "../components/NavBar";
+import NavBar from "@/components/NavBar";
 
 export const metadata = {
   title: "Shot-app",
