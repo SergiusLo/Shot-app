@@ -29,11 +29,8 @@ const AuthProviders = () => {
 
         fetchProviders();
     }, []);
-    if(providers === null) {
-    return null
-    }
 
-    
+    if (providers) {
         return (
             <div>
                 {Object.values(providers).map((provider: Provider, i) => (
@@ -41,6 +38,7 @@ const AuthProviders = () => {
                 ))}
             </div>
         )
+    }
 }
 
 export default AuthProviders
