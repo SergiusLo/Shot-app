@@ -10,6 +10,7 @@ import {
 } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 import { updateProjectMutation } from "./../graphql/index";
+import { categoryFilters } from '@/constans';
 
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
@@ -32,13 +33,12 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
   }
 };
 
-export const fetchAllProjects = (
-  category?: string | null,
-  endCursor?: string | null
-) => {
+export const fetchAllProjects = (category?: string | null, endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(projectsQuery, { category, endCursor });
+  const categories = category == null ? categoryFilters : [category];
+
+  return makeGraphQLRequest(projectsQuery, { categories, endcursor });
 };
 
 export const getUser = (email: string) => {
