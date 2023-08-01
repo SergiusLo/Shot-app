@@ -29,7 +29,6 @@ type ProjectSearch = {
   export const revalidate = 0
 
 const Home = async ({ searchParams: { category, endcursor } }: Props) => {
-
   
   const data = (await fetchAllProjects(category, endcursor)) as ProjectSearch;
   
