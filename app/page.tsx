@@ -3,6 +3,8 @@ import Categories from "@/components/Categories";
 import LoadMore from "@/components/LoadMore";
 import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions";
+import { getCurrentUser } from '@/lib/session';
+import { redirect } from 'next/navigation';
 type SearchParams = {
   category?: string | null;
   endcursor?: string | null;
@@ -29,7 +31,10 @@ type ProjectSearch = {
   export const revalidate = 0
 
 const Home = async ({ searchParams: { category, endcursor } }: Props) => {
-  
+  const session = await getCurrentUser();
+  if (session) {
+  <p>Loading...</p>
+  }
   const data = (await fetchAllProjects(category, endcursor)) as ProjectSearch;
   
 
